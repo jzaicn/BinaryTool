@@ -30,6 +30,26 @@ namespace Variables
             return result;
         }
 
+		//字节转普通可见字符串
+		public static string byte2NormalVisableStr(byte[] value)
+		{
+			string result = "";
+			for (int i = 0; i < value.Length; i++)
+			{
+				char a = (char)value[i];
+				if ( a >= 33 && a<= 126)
+				{
+					result += a;
+				}
+				else
+				{
+					result += '.';
+				}
+				
+			}
+			return result;
+		}
+
         //把一串字符串转换为byte的集合
         public static List<byte> stringToByte(string value)
         {

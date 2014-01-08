@@ -35,11 +35,21 @@
 			this.Bin2HexField = new System.Windows.Forms.TextBox();
 			this.Bin2CharField = new System.Windows.Forms.TextBox();
 			this.panel1 = new System.Windows.Forms.Panel();
-			this.panel2 = new System.Windows.Forms.Panel();
-			this.showBin = new System.Windows.Forms.Button();
 			this.editBin = new System.Windows.Forms.Button();
+			this.showBin = new System.Windows.Forms.Button();
+			this.panel2 = new System.Windows.Forms.Panel();
+			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+			this.splitContainer2 = new System.Windows.Forms.SplitContainer();
 			this.panel1.SuspendLayout();
 			this.panel2.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+			this.splitContainer1.Panel1.SuspendLayout();
+			this.splitContainer1.Panel2.SuspendLayout();
+			this.splitContainer1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+			this.splitContainer2.Panel1.SuspendLayout();
+			this.splitContainer2.Panel2.SuspendLayout();
+			this.splitContainer2.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// openBin
@@ -74,10 +84,11 @@
 			// 
 			// BinRowNumber
 			// 
-			this.BinRowNumber.Dock = System.Windows.Forms.DockStyle.Left;
+			this.BinRowNumber.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.BinRowNumber.Location = new System.Drawing.Point(0, 0);
 			this.BinRowNumber.Multiline = true;
 			this.BinRowNumber.Name = "BinRowNumber";
+			this.BinRowNumber.ReadOnly = true;
 			this.BinRowNumber.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
 			this.BinRowNumber.Size = new System.Drawing.Size(62, 348);
 			this.BinRowNumber.TabIndex = 3;
@@ -85,21 +96,22 @@
 			// Bin2HexField
 			// 
 			this.Bin2HexField.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.Bin2HexField.Location = new System.Drawing.Point(62, 0);
+			this.Bin2HexField.Location = new System.Drawing.Point(0, 0);
 			this.Bin2HexField.Multiline = true;
 			this.Bin2HexField.Name = "Bin2HexField";
 			this.Bin2HexField.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.Bin2HexField.Size = new System.Drawing.Size(278, 348);
+			this.Bin2HexField.Size = new System.Drawing.Size(359, 348);
 			this.Bin2HexField.TabIndex = 4;
 			// 
 			// Bin2CharField
 			// 
-			this.Bin2CharField.Dock = System.Windows.Forms.DockStyle.Right;
-			this.Bin2CharField.Location = new System.Drawing.Point(340, 0);
+			this.Bin2CharField.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.Bin2CharField.Location = new System.Drawing.Point(0, 0);
 			this.Bin2CharField.Multiline = true;
 			this.Bin2CharField.Name = "Bin2CharField";
+			this.Bin2CharField.ReadOnly = true;
 			this.Bin2CharField.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.Bin2CharField.Size = new System.Drawing.Size(254, 348);
+			this.Bin2CharField.Size = new System.Drawing.Size(165, 348);
 			this.Bin2CharField.TabIndex = 5;
 			// 
 			// panel1
@@ -115,16 +127,15 @@
 			this.panel1.Size = new System.Drawing.Size(594, 31);
 			this.panel1.TabIndex = 6;
 			// 
-			// panel2
+			// editBin
 			// 
-			this.panel2.Controls.Add(this.Bin2HexField);
-			this.panel2.Controls.Add(this.BinRowNumber);
-			this.panel2.Controls.Add(this.Bin2CharField);
-			this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panel2.Location = new System.Drawing.Point(0, 31);
-			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(594, 348);
-			this.panel2.TabIndex = 7;
+			this.editBin.Location = new System.Drawing.Point(435, 3);
+			this.editBin.Name = "editBin";
+			this.editBin.Size = new System.Drawing.Size(75, 23);
+			this.editBin.TabIndex = 4;
+			this.editBin.Text = "加载修改";
+			this.editBin.UseVisualStyleBackColor = true;
+			this.editBin.Click += new System.EventHandler(this.editBin_Click);
 			// 
 			// showBin
 			// 
@@ -136,15 +147,48 @@
 			this.showBin.UseVisualStyleBackColor = true;
 			this.showBin.Click += new System.EventHandler(this.showBin_Click);
 			// 
-			// editBin
+			// panel2
 			// 
-			this.editBin.Location = new System.Drawing.Point(435, 3);
-			this.editBin.Name = "editBin";
-			this.editBin.Size = new System.Drawing.Size(75, 23);
-			this.editBin.TabIndex = 4;
-			this.editBin.Text = "修改内容";
-			this.editBin.UseVisualStyleBackColor = true;
-			this.editBin.Click += new System.EventHandler(this.editBin_Click);
+			this.panel2.Controls.Add(this.splitContainer1);
+			this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panel2.Location = new System.Drawing.Point(0, 31);
+			this.panel2.Name = "panel2";
+			this.panel2.Size = new System.Drawing.Size(594, 348);
+			this.panel2.TabIndex = 7;
+			// 
+			// splitContainer1
+			// 
+			this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+			this.splitContainer1.Name = "splitContainer1";
+			// 
+			// splitContainer1.Panel1
+			// 
+			this.splitContainer1.Panel1.Controls.Add(this.BinRowNumber);
+			// 
+			// splitContainer1.Panel2
+			// 
+			this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
+			this.splitContainer1.Size = new System.Drawing.Size(594, 348);
+			this.splitContainer1.SplitterDistance = 62;
+			this.splitContainer1.TabIndex = 6;
+			// 
+			// splitContainer2
+			// 
+			this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+			this.splitContainer2.Name = "splitContainer2";
+			// 
+			// splitContainer2.Panel1
+			// 
+			this.splitContainer2.Panel1.Controls.Add(this.Bin2HexField);
+			// 
+			// splitContainer2.Panel2
+			// 
+			this.splitContainer2.Panel2.Controls.Add(this.Bin2CharField);
+			this.splitContainer2.Size = new System.Drawing.Size(528, 348);
+			this.splitContainer2.SplitterDistance = 359;
+			this.splitContainer2.TabIndex = 0;
 			// 
 			// BinToolForm
 			// 
@@ -157,7 +201,17 @@
 			this.Text = "Form1";
 			this.panel1.ResumeLayout(false);
 			this.panel2.ResumeLayout(false);
-			this.panel2.PerformLayout();
+			this.splitContainer1.Panel1.ResumeLayout(false);
+			this.splitContainer1.Panel1.PerformLayout();
+			this.splitContainer1.Panel2.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+			this.splitContainer1.ResumeLayout(false);
+			this.splitContainer2.Panel1.ResumeLayout(false);
+			this.splitContainer2.Panel1.PerformLayout();
+			this.splitContainer2.Panel2.ResumeLayout(false);
+			this.splitContainer2.Panel2.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+			this.splitContainer2.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -174,6 +228,8 @@
 		private System.Windows.Forms.Button editBin;
 		private System.Windows.Forms.Button showBin;
 		private System.Windows.Forms.Panel panel2;
+		private System.Windows.Forms.SplitContainer splitContainer1;
+		private System.Windows.Forms.SplitContainer splitContainer2;
 	}
 }
 
